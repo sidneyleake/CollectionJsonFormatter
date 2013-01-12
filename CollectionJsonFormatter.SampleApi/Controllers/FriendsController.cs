@@ -10,14 +10,14 @@ namespace CollectionJsonFormatter.SampleApi.Controllers
 {
     public class FriendsController : ApiController
     {
-        public IQueryable<Friend> Get()
+        public IQueryable<FluidFriend> Get()
         {
-            return SampleData.Friends.AsQueryable();
+            return SampleData.FluidFriends.AsQueryable();
         }
 
-        public Friend Get(string id)
+        public AttributedFriend Get(string id)
         {
-            return SampleData.Friends.Single(f => f.ShortName == id);
+            return SampleData.AttributedFriends.Single(f => f.ShortName == id);
         }
     }
 }

@@ -8,19 +8,38 @@ namespace CollectionJsonFormatter.SampleApi
 {
     public static class SampleData
     {
-        public static List<Friend> Friends = new List<Friend>
+        public static List<AttributedFriend> AttributedFriends = new List<AttributedFriend>
         {
-            new Friend
+            new AttributedFriend
             {
                 Email = "sleake@email.com",
                 FullName = "Sidney Leake"
             },
-            new Friend
+            new AttributedFriend
             {
                 Email = "tnguyen@email.com",
                 FullName = "Truong Nguyen"
             },
-            new Friend
+            new AttributedFriend
+            {
+                Email = "aaung@email.com",
+                FullName = "Andrew Aung"
+            }
+        };
+
+        public static List<FluidFriend> FluidFriends = new List<FluidFriend>
+        {
+            new FluidFriend
+            {
+                Email = "sleake@email.com",
+                FullName = "Sidney Leake"
+            },
+            new FluidFriend
+            {
+                Email = "tnguyen@email.com",
+                FullName = "Truong Nguyen"
+            },
+            new FluidFriend
             {
                 Email = "aaung@email.com",
                 FullName = "Andrew Aung"

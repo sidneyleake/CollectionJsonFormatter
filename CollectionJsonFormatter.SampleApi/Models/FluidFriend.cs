@@ -1,14 +1,11 @@
 ﻿namespace CollectionJsonFormatter.SampleApi.Models
 {
-    using CollectionJsonFormatter.Attributes;
-    
-    [AddCollectionLink("/friends/rss", "feed")]
-    [AddHref("/friends/{short-name}")]
-    [AddItemLink("/blogs/{short-name}", "blog", Prompt = "Blog")]
-    [AddItemLink("/images/{short-name}", "avatar", Prompt = "Avatar")]
-    [AddQuery("search")]
-    [AddTemplate]
-    public class Friend
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+
+    public class FluidFriend
     {
         private string fullName;
 

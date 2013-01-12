@@ -33,6 +33,11 @@
                 .Cast<AddHref>()
                 .SingleOrDefault();
 
+            if (hrefAttribute == null)
+            {
+                hrefAttribute = CollectionJsonConfiguration.GetRegisteredAttributes<AddHref>(type).SingleOrDefault();
+            }
+
             if (hrefAttribute != null)
             {
                 Href = Helpers.ResolveTokens<T>(hrefAttribute.Href, entity);
@@ -43,6 +48,9 @@
         {
             var type = entity.GetType();
             var addLinkAttributes = type.GetCustomAttributes(typeof(AddItemLink), inherit: false).Cast<AddItemLink>();
+            var registeredAttributes = CollectionJsonConfiguration.GetRegisteredAttributes<AddItemLink>(type);
+            addLinkAttributes = addLinkAttributes.Concat(registeredAttributes);
+
             Links = addLinkAttributes.Select(ala => new LinkProperty
             {
                 Href = Helpers.ResolveTokens(ala.Href, entity),
@@ -62,15 +70,20 @@
             Data = properties.Select(p => new DataProperty
             {
                 Name = Helpers.FormatString(p.Name, CollectionJsonConfiguration.PropertyNameFormat),
-                Prompt = GetPrompt(p),
+                Prompt = GetPrompt(p, type),
                 Value = (value = p.GetValue(entity)) != null ? value.ToString() : null 
             });
         }
 
-        private static string GetPrompt(PropertyInfo info)
+        private static string GetPrompt(PropertyInfo info, Type type)
         {
             var prompt = default(string);
             var attribute = info.GetCustomAttribute(typeof(Prompt), inherit: false);
+            if (attribute == null)
+            {
+                attribute = CollectionJsonConfiguration.GetRegisteredAttributes<Prompt>(type, info.Name).SingleOrDefault();
+            }
+
             if (attribute != null)
             {
                 var promptAttribute = (Prompt)attribute;

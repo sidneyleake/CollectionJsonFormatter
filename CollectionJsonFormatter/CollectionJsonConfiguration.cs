@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using CollectionJsonFormatter.Common;
     using CollectionJsonFormatter.Models;
     using Newtonsoft.Json;
@@ -14,6 +15,8 @@
         public IContractResolver ContractResolver { get; set; }
 
         internal static Dictionary<string, QueryProperty> RegisteredQueries { get; set; }
+
+        internal static List<AttributeRegistration> AttributeRegistry { get; set; }
 
         public static StringFormat PropertyNameFormat = StringFormat.HyphenatedLowerCase;
 
@@ -30,6 +33,11 @@
             };
         }
 
+        static CollectionJsonConfiguration()
+        {
+            AttributeRegistry = new List<AttributeRegistration>();
+        }
+
         public static void RegisterQuery(string name, QueryProperty query)
         {
             if (RegisteredQueries == null)
@@ -43,6 +51,15 @@
             }
 
             RegisteredQueries.Add(name, query);
+        }
+
+        public static IEnumerable<T> GetRegisteredAttributes<T>(Type underlyingType, string promptFieldName = null)
+        {
+            var registeredAttributes = AttributeRegistry.ToLookup(lu => lu.Type)[underlyingType];
+            return registeredAttributes
+                .Where(ra => ra.PromptFieldName == promptFieldName)
+                .Select(ra => ra.Attribute)
+                .OfType<T>();
         }
     }
 }

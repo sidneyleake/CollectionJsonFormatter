@@ -1,9 +1,9 @@
 ﻿namespace CollectionJsonFormatter.Models
 {
     using System;
-    using CollectionJsonFormatter.Attributes;
-    using System.Linq;
     using System.Collections.Generic;
+    using System.Linq;
+    using CollectionJsonFormatter.Attributes;
 
     public class CollectionJsonDocument
     {
@@ -45,6 +45,11 @@
                 .GetCustomAttributes(typeof(AddCollectionLink), inherit: false)
                 .Cast<AddCollectionLink>();
 
+            var registeredAttributes = CollectionJsonConfiguration
+                .GetRegisteredAttributes<AddCollectionLink>(underlyingType);
+
+            collectionLinkAttributes = collectionLinkAttributes.Concat(registeredAttributes);
+
             var collectionLinks = new List<LinkProperty>();
             foreach (var collectionLinkAttribute in collectionLinkAttributes)
             {
@@ -74,6 +79,11 @@
                 .GetCustomAttributes(typeof(AddQuery), inherit: false)
                 .Cast<AddQuery>();
 
+            var registeredAttributes = CollectionJsonConfiguration
+                .GetRegisteredAttributes<AddQuery>(underlyingType);
+
+            queryAttributes = queryAttributes.Concat(registeredAttributes);
+
             var queries = new List<QueryProperty>();
             foreach (var queryAttribute in queryAttributes)
             {
@@ -88,6 +98,11 @@
             var hasTemplateAttribute = underlyingType
                 .GetCustomAttributes(typeof(AddTemplate), inherit: false)
                 .Any();
+
+            if (!hasTemplateAttribute)
+            {
+                hasTemplateAttribute = CollectionJsonConfiguration.GetRegisteredAttributes<AddTemplate>(underlyingType).Any();
+            }
 
             if (hasTemplateAttribute)
             {
