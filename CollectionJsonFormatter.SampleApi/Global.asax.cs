@@ -25,10 +25,6 @@
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             CollectionJsonConfig.Register(GlobalConfiguration.Configuration);
-
-            var formatter = new CollectionJsonMediaTypeFormatter();
-
-            GlobalConfiguration.Configuration.Formatters.Add(formatter);
         }
     }
 }

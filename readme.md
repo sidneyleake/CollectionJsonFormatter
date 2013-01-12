@@ -1,6 +1,10 @@
 # collection+json formatter
-This library providers support for [Mike Amundsen](https://twitter.com/mamund)'s 
-[collection+json](http://amundsen.com/media-types/collection/) mediatype in ASP.NET Web API.
+When creating RESTful services, hypermedia is one of those things you are just supposed to do. 
+[Mike Amundsen](https://twitter.com/mamund)'s [collection+json](http://amundsen.com/media-types/collection/) 
+mediatype provides a standard way to add hypermedia to your services. Since collection+json is a standard, 
+it is possible to provide a formatter to create what is necessary with minimal work by the developer, 
+similar to the currently available JsonMediaTypeFormatter and XmlMediaTypeFormatter. This library has 
+a CollectionJsonMediaTypeFormatter which provides support for mediatype in ASP.NET Web API.
 
 ## features
 * A model set representing the properties defined for a collection+json document
