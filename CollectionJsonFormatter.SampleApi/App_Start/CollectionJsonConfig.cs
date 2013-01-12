@@ -1,13 +1,13 @@
 ﻿namespace CollectionJsonFormatter.SampleApi
 {
     using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web.Http;
-using CollectionJsonFormatter.Attributes;
-using CollectionJsonFormatter.Extensions;
-using CollectionJsonFormatter.Models;
-using CollectionJsonFormatter.SampleApi.Models;
+    using System.Linq;
+    using System.Reflection;
+    using System.Web.Http;
+    using CollectionJsonFormatter.Attributes;
+    using CollectionJsonFormatter.Extensions;
+    using CollectionJsonFormatter.Models;
+    using CollectionJsonFormatter.SampleApi.Models;
 
     public class CollectionJsonConfig
     {
