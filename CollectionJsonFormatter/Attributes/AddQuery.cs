@@ -3,7 +3,7 @@
     using System;
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class AddQuery : Attribute
+    public class AddQuery : CollectionJsonAttribute
     {
         public string Name { get; private set; }
 

@@ -51,6 +51,7 @@
     <Compile Include="Attributes\AddItemLink.cs" />
     <Compile Include="Attributes\AddQuery.cs" />
     <Compile Include="Attributes\AddTemplate.cs" />
+    <Compile Include="Attributes\CollectionJsonAttribute.cs" />
     <Compile Include="Attributes\Prompt.cs" />
     <Compile Include="CollectionJsonConfiguration.cs" />
     <Compile Include="CollectionJsonMediaTypeFormatter.cs" />

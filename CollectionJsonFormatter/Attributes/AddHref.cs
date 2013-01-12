@@ -3,7 +3,7 @@
     using System;
 
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
-    public class AddHref : Attribute
+    public class AddHref : CollectionJsonAttribute
     {
         public string Href { get; private set; }
 

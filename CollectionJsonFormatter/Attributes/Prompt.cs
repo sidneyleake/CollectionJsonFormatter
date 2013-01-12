@@ -3,7 +3,7 @@
     using System;
 
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    public class Prompt : Attribute
+    public class Prompt : CollectionJsonAttribute
     {
         public string Text { get; private set; }
 

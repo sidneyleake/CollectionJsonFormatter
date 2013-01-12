@@ -55,7 +55,7 @@ using CollectionJsonFormatter.SampleApi.Models;
         {
             var types = Assembly.GetAssembly(typeof(CollectionJsonConfig))
                 .GetTypes()
-                .Where(t => t.GetCustomAttributes().Any());
+                .Where(t => t.GetCustomAttributes<CollectionJsonAttribute>().Any());
 
             foreach (var type in types)
             {
