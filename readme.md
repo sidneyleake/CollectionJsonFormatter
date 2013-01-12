@@ -16,3 +16,5 @@ This library providers support for Mike Amundsen's collection+json mediatype in 
 ## features to be
 * A mediatype formatter that converts a collection+json representation to a model
 * A sample web application consuming an api and requesting data in collection+json format
+
+I would love help from anyone who is interested :)
