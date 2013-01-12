@@ -1,5 +1,6 @@
 # collection+json formatter
-This library providers support for Mike Amundsen's collection+json mediatype in ASP.NET Web API.
+This library providers support for [Mike Amundsen](https://twitter.com/mamund)'s 
+[collection+json](http://amundsen.com/media-types/collection/) mediatype in ASP.NET Web API.
 
 ## features
 * A model set representing the properties defined for a collection+json document
