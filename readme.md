@@ -23,3 +23,5 @@ a CollectionJsonMediaTypeFormatter which provides support for mediatype in ASP.N
 * A sample web application consuming an api and requesting data in collection+json format
 
 I would love help from anyone who is interested :)
+
+[@alm0stk00l](https://twitter.com/alm0stk00l)
