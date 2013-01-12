@@ -28,15 +28,7 @@
         public void AddHref<T>(T entity)
         {
             var type = entity.GetType();
-            var hrefAttribute = type
-                .GetCustomAttributes(typeof(AddHref), inherit: false)
-                .Cast<AddHref>()
-                .SingleOrDefault();
-
-            if (hrefAttribute == null)
-            {
-                hrefAttribute = CollectionJsonConfiguration.GetRegisteredAttributes<AddHref>(type).SingleOrDefault();
-            }
+            var hrefAttribute = CollectionJsonConfiguration.GetRegisteredAttributes<AddHref>(type).SingleOrDefault();
 
             if (hrefAttribute != null)
             {
@@ -47,11 +39,9 @@
         public void AddLinks<T>(T entity)
         {
             var type = entity.GetType();
-            var addLinkAttributes = type.GetCustomAttributes(typeof(AddItemLink), inherit: false).Cast<AddItemLink>();
             var registeredAttributes = CollectionJsonConfiguration.GetRegisteredAttributes<AddItemLink>(type);
-            addLinkAttributes = addLinkAttributes.Concat(registeredAttributes);
 
-            Links = addLinkAttributes.Select(ala => new LinkProperty
+            Links = registeredAttributes.Select(ala => new LinkProperty
             {
                 Href = Helpers.ResolveTokens(ala.Href, entity),
                 Name = Helpers.FormatString(ala.Name, CollectionJsonConfiguration.PropertyNameFormat),
@@ -78,11 +68,7 @@
         private static string GetPrompt(PropertyInfo info, Type type)
         {
             var prompt = default(string);
-            var attribute = info.GetCustomAttribute(typeof(Prompt), inherit: false);
-            if (attribute == null)
-            {
-                attribute = CollectionJsonConfiguration.GetRegisteredAttributes<Prompt>(type, info.Name).SingleOrDefault();
-            }
+            var attribute = CollectionJsonConfiguration.GetRegisteredAttributes<Prompt>(type, info.Name).SingleOrDefault();
 
             if (attribute != null)
             {

@@ -41,25 +41,19 @@
 
         public void AddCollectionLinks()
         {
-            var collectionLinkAttributes = underlyingType
-                .GetCustomAttributes(typeof(AddCollectionLink), inherit: false)
-                .Cast<AddCollectionLink>();
-
             var registeredAttributes = CollectionJsonConfiguration
                 .GetRegisteredAttributes<AddCollectionLink>(underlyingType);
 
-            collectionLinkAttributes = collectionLinkAttributes.Concat(registeredAttributes);
-
             var collectionLinks = new List<LinkProperty>();
-            foreach (var collectionLinkAttribute in collectionLinkAttributes)
+            foreach (var attribute in registeredAttributes)
             {
                 collectionLinks.Add(new LinkProperty
                 {
-                    Href = collectionLinkAttribute.Href,
-                    Name = collectionLinkAttribute.Name,
-                    Prompt = collectionLinkAttribute.Prompt,
-                    Rel = collectionLinkAttribute.Rel,
-                    Render = collectionLinkAttribute.Render
+                    Href = attribute.Href,
+                    Name = attribute.Name,
+                    Prompt = attribute.Prompt,
+                    Rel = attribute.Rel,
+                    Render = attribute.Render
                 });
             }
 
@@ -75,17 +69,11 @@
 
         public void AddQueries()
         {
-            var queryAttributes = underlyingType
-                .GetCustomAttributes(typeof(AddQuery), inherit: false)
-                .Cast<AddQuery>();
-
             var registeredAttributes = CollectionJsonConfiguration
                 .GetRegisteredAttributes<AddQuery>(underlyingType);
 
-            queryAttributes = queryAttributes.Concat(registeredAttributes);
-
             var queries = new List<QueryProperty>();
-            foreach (var queryAttribute in queryAttributes)
+            foreach (var queryAttribute in registeredAttributes)
             {
                 queries.Add(CollectionJsonConfiguration.RegisteredQueries[queryAttribute.Name]);
             }
@@ -95,14 +83,7 @@
 
         public void AddTemplate()
         {
-            var hasTemplateAttribute = underlyingType
-                .GetCustomAttributes(typeof(AddTemplate), inherit: false)
-                .Any();
-
-            if (!hasTemplateAttribute)
-            {
-                hasTemplateAttribute = CollectionJsonConfiguration.GetRegisteredAttributes<AddTemplate>(underlyingType).Any();
-            }
+            var hasTemplateAttribute = CollectionJsonConfiguration.GetRegisteredAttributes<AddTemplate>(underlyingType).Any();
 
             if (hasTemplateAttribute)
             {

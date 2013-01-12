@@ -24,25 +24,9 @@
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            CollectionJsonAttributeConfig.RegisterAttributes();
+            CollectionJsonConfig.Register(GlobalConfiguration.Configuration);
 
             var formatter = new CollectionJsonMediaTypeFormatter();
-            CollectionJsonConfiguration.RegisterQuery("search", new QueryProperty
-            {
-                Href = "/friends/search",
-                Name = "search",
-                Prompt = "Search",
-                Rel = "search",
-                Data = new List<DataProperty>
-                {
-                    new DataProperty
-                    {
-                        Name = "search",
-                        Prompt = "Search",
-                        Value = string.Empty
-                    }
-                }
-            });
 
             GlobalConfiguration.Configuration.Formatters.Add(formatter);
         }
