@@ -23,6 +23,8 @@ a CollectionJsonMediaTypeFormatter which provides support for mediatype in ASP.N
 ## features to be
 * A mediatype formatter that converts a collection+json representation to a model
 * A sample web application consuming an api and requesting data in collection+json format
+* Functionality to ignore properties when building items
+* Funtiionality to ignore properties when building template
 
 I would love help from anyone who is interested :)
 
