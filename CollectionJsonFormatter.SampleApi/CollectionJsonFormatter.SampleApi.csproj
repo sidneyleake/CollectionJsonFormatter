@@ -126,6 +126,7 @@
     <Compile Include="Controllers\FluidFriendsController.cs" />
     <Compile Include="Controllers\AttributedFriendsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManualFriendsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

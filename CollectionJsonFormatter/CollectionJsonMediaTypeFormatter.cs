@@ -46,7 +46,11 @@
                 var underlyingType = GetUnderlyingType(type);
                 var collectionJson = new CollectionJsonDocument(underlyingType, HttpContext.Current.Request.Path);
                 collectionJson.Initialize();
-                if (value is IEnumerable)
+                if (value is CollectionJsonDocument)
+                {
+                    collectionJson = (CollectionJsonDocument)value;
+                }
+                else if (value is IEnumerable)
                 {
                     foreach (var entity in (IEnumerable)value)
                     {
