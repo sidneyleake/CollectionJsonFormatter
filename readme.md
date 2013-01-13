@@ -17,6 +17,8 @@ a CollectionJsonMediaTypeFormatter which provides support for mediatype in ASP.N
 * A sample web api which allows for collection+json requests
 * More settings to be configured
 * A lot of code clean-up
+* Hanlding error responses
+* Allowing for manual creation of collection+json documents
 
 ## features to be
 * A mediatype formatter that converts a collection+json representation to a model
