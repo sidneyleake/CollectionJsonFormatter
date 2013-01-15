@@ -25,6 +25,7 @@ a CollectionJsonMediaTypeFormatter which provides support for mediatype in ASP.N
 * A sample web application consuming an api and requesting data in collection+json format
 * Functionality to ignore properties when building items
 * Funtiionality to ignore properties when building template
+* Regex and Required properties on items for templates
 
 I would love help from anyone who is interested :)
 
