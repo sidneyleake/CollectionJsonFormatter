@@ -2,24 +2,19 @@
 {
     using System;
     using System.Collections;
-    using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Net.Http.Formatting;
     using System.Net.Http.Headers;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Web;
     using CollectionJsonFormatter.Models;
     using Newtonsoft.Json;
-    using Newtonsoft.Json.Serialization;
 
     public class CollectionJsonMediaTypeFormatter : BufferedMediaTypeFormatter
     {
         public CollectionJsonConfiguration Configuration { get; set; }
 
         public CollectionJsonMediaTypeFormatter()
-            :this(new CollectionJsonConfiguration())
+            : this(new CollectionJsonConfiguration())
         {
         }
 
