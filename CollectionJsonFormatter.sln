@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionJsonFormatter", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionJsonFormatter.Tests", "CollectionJsonFormatter.Tests\CollectionJsonFormatter.Tests.csproj", "{4F5DAC85-39E1-4506-968D-66797E709226}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionJsonFormatter.SampleConsumer", "CollectionJsonFormatter.SampleConsumer\CollectionJsonFormatter.SampleConsumer.csproj", "{28E8587A-ACA1-4A25-B816-528DA0FDB749}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionJsonFormatter.SampleConsumer.Tests", "CollectionJsonFormatter.SampleConsumer.Tests\CollectionJsonFormatter.SampleConsumer.Tests.csproj", "{A97F67DB-36E6-4FC3-9DC2-DCE2256BE19A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{4F5DAC85-39E1-4506-968D-66797E709226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F5DAC85-39E1-4506-968D-66797E709226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F5DAC85-39E1-4506-968D-66797E709226}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28E8587A-ACA1-4A25-B816-528DA0FDB749}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28E8587A-ACA1-4A25-B816-528DA0FDB749}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28E8587A-ACA1-4A25-B816-528DA0FDB749}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28E8587A-ACA1-4A25-B816-528DA0FDB749}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A97F67DB-36E6-4FC3-9DC2-DCE2256BE19A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97F67DB-36E6-4FC3-9DC2-DCE2256BE19A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97F67DB-36E6-4FC3-9DC2-DCE2256BE19A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A97F67DB-36E6-4FC3-9DC2-DCE2256BE19A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

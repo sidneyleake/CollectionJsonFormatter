@@ -54,10 +54,10 @@
 
             collectionJsonDocument.Collection.Template = new TemplateProperty
             {
-                Data = new List<DataProperty>
+                Data = new List<TemplateDataProperty>
                 {
-                    new DataProperty { Name = "email", Prompt = "Email", Value = string.Empty },
-                    new DataProperty { Name = "full-name", Prompt = "Full Name", Value = string.Empty }
+                    new TemplateDataProperty { Name = "email", Prompt = "Email", Value = string.Empty },
+                    new TemplateDataProperty { Name = "full-name", Prompt = "Full Name", Value = string.Empty, Required = "true", Regexp = "^[a-zA-z]+$" }
                 }
             };
 

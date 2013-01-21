@@ -34,6 +34,7 @@
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
     <Reference Include="System.Net.Http" />
@@ -52,6 +53,10 @@
     <Compile Include="Attributes\AddQuery.cs" />
     <Compile Include="Attributes\AddTemplate.cs" />
     <Compile Include="Attributes\CollectionJsonAttribute.cs" />
+    <Compile Include="Attributes\CollectionJsonIgnore.cs" />
+    <Compile Include="Attributes\CollectionJsonRegex.cs" />
+    <Compile Include="Attributes\CollectionJsonRequired.cs" />
+    <Compile Include="Attributes\CollectionJsonTemplateIgnore.cs" />
     <Compile Include="Attributes\Prompt.cs" />
     <Compile Include="CollectionJsonConfiguration.cs" />
     <Compile Include="CollectionJsonMediaTypeFormatter.cs" />
@@ -67,6 +72,7 @@
     <Compile Include="Models\ItemProperty.cs" />
     <Compile Include="Models\LinkProperty.cs" />
     <Compile Include="Models\QueryProperty.cs" />
+    <Compile Include="Models\TemplateDataProperty.cs" />
     <Compile Include="Models\TemplateProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="CollectionJsonMediaTypeFormatterTests.cs" />
     <Compile Include="Common\HelpersTests.cs" />
+    <Compile Include="Extensions\AttributeRegistrationExtensionsTests.cs" />
     <Compile Include="Models\CollectionJsonDocumentTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleData\SampleCollectionLinks.cs" />

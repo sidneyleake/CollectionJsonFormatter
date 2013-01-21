@@ -74,6 +74,11 @@
             writeStream.Close();
         }
 
+        public override void SetDefaultContentHeaders(Type type, HttpContentHeaders headers, MediaTypeHeaderValue mediaType)
+        {
+            base.SetDefaultContentHeaders(type, headers, mediaType);
+        }
+
         private Type GetUnderlyingType(Type type)
         {
             if (type.IsGenericType)

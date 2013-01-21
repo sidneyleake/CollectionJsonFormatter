@@ -28,7 +28,11 @@
                 .RegisterAttribute<AddItemLink>(new AddItemLink("/friends/blog/{short-name}", "blog") { Prompt = "Blog" })
                 .RegisterAttribute<AddItemLink>(new AddItemLink("/friends/images/{short-name}", "avatar") { Prompt = "Avatar" })
                 .RegisterAttribute<AddQuery>(new AddQuery("search"))
-                .RegisterAttribute<AddTemplate>(new AddTemplate());
+                .RegisterAttribute<AddTemplate>(new AddTemplate())
+                .Ignore("Email")
+                .TemplateIgnore("ShortName")
+                .Require("FullName")
+                .Regex("FullName", "^[a-zA-z]+$");
         }
 
         private static void RegisterQueries()
@@ -66,11 +70,14 @@
                 }
 
                 var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
-                    .Where(p => p.GetCustomAttribute<Prompt>() != null);
+                    .Where(p => p.GetCustomAttributes<CollectionJsonAttribute>().Any());
                 foreach (var property in properties)
                 {
-                    var prompt = property.GetCustomAttribute<Prompt>();
-                    type.RegisterAttribute<Prompt>(prompt, property.Name);
+                    var collectionJsonAttributes = property.GetCustomAttributes();
+                    foreach (var collectionJsonAttribute in collectionJsonAttributes)
+                    {
+                        type.RegisterAttribute(collectionJsonAttribute, property.Name);
+                    }
                 }
             }
         }

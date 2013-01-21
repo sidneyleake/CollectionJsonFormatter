@@ -8,6 +8,7 @@
     using System.Threading.Tasks;
     using CollectionJsonFormatter.Attributes;
     using CollectionJsonFormatter.Common;
+    using Newtonsoft.Json;
 
     public class ItemProperty
     {
@@ -54,7 +55,9 @@
         public void AddData<T>(T entity)
         {
             var type = entity.GetType();
-            var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+            var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => !CollectionJsonConfiguration.AttributeRegistry
+                    .Any(ar => ar.PromptFieldName == p.Name && ar.Attribute.GetType() == typeof(CollectionJsonIgnore)));
             var value = default(object);
 
             Data = properties.Select(p => new DataProperty
